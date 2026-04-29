@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BayBayRooms - Cheapest Boarding Houses Baybay City Leyte</title>
+    <meta name="description" content="Find affordable boarding houses in Baybay City Leyte. Rooms from ₱1,500/month. Near VSU, Baybay National High School.">
+    
+    <!-- 🔥 MONETIZATION READY - AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+     crossorigin="anonymous"></script>
+    
+    <style>
+        :root {
+            --primary: linear-gradient(45deg, #3B82F6, #1D4ED8);
+            --secondary: linear-gradient(45deg, #10B981, #059669);
+            --gold: linear-gradient(45deg, #F59E0B, #D97706);
+            --dark: #1F2937;
+            --glass: rgba(255,255,255,0.95);
+            --purple: linear-gradient(45deg, #8B5CF6, #7C3AED);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .header-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 0; max-width: 1200px; margin: 0 auto; padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem; font-weight: 900;
+            background: var(--primary); -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .revenue-buttons { display: flex; gap: 15px; align-items: center; }
+
+        .btn {
+            padding: 12px 24px; border: none; border-radius: 50px; font-weight: 600;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.3s ease; cursor: pointer; font-size: 0.95rem;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-success { background: #10B981; color: white; }
+        .btn-gold { background: var(--gold); color: #1F2937; }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        /* SEARCH BAR */
+        .search-hero {
+            background: var(--glass); padding: 30px; border-radius: 25px; margin: 30px 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .search-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 20px; align-items: end;
+        }
+
+        input, select {
+            padding: 18px 24px; border: 3px solid #E5E7EB; border-radius: 20px; font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus { 
+            outline: none; border-color: #3B82F6; box-shadow: 0 0 0 4px rgba(59,130,246,0.1); 
+        }
+
+        /* HERO */
+        .hero-stats {
+            text-align: center; color: white; margin: 40px 0; padding: 40px 0;
+        }
+
+        .hero-stats h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem; font-weight: 900; background: var(--secondary); 
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        /* FILTERS */
+        .filters {
+            background: var(--glass); padding: 30px; border-radius: 25px; margin: 30px 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .filter-row {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
+        }
+
+        /* ROOMS GRID */
+        .rooms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px;
+            margin: 40px 0;
+        }
+
+        .room-card {
+            background: var(--glass); border-radius: 25px; padding: 30px; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1); transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.3); position: relative; overflow: hidden;
+        }
+
+        .room-card:hover {
+            transform: translateY(-15px); box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .featured-badge {
+            position: absolute; top: 20px; right: 20px; background: var(--gold);
+            color: #1F2937; padding: 8px 16px; border-radius: 25px; font-weight: 800;
+            font-size: 0.85rem; box-shadow: 0 5px 20px rgba(245,158,11,0.4);
+        }
+
+        .room-header {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;
+        }
+
+        .room-title { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+
+        .price-huge {
+            background: var(--secondary); color: white;
+            padding: 18px 28px; border-radius: 25px; font-size: 1.8rem; font-weight: 900;
+            box-shadow: 0 10px 30px rgba(16,185,129,0.4);
+        }
+
+        .room-features {
+            display: flex; gap: 15px; margin: 20px 0; font-size: 0.95rem; color: #6B7280; flex-wrap: wrap;
+        }
+
+        .feature { display: flex; align-items: center; gap: 6px; padding: 8px 16px; 
+                   background: #F3F4F6; border-radius: 20px; }
+
+        /* SPONSORED */
+        .sponsored-banner {
+            background: var(--purple); color: white; padding: 35px; border-radius: 25px;
+            margin: 50px 0; text-align: center; box-shadow: 0 20px 60px rgba(139,92,246,0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0,0,0,0.95); color: white; padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; margin-bottom: 40px;
+        }
+
+        .landlord-box {
+            background: var(--primary); padding: 40px; border-radius: 25px; text-align: center;
+            box-shadow: 0 20px 60px rgba(59,130,246,0.4);
+        }
+
+        .price-highlight {
+            font-size: 3rem; font-weight: 900; color: #FFD700; display: block;
+        }
+
+        @media (max-width: 768px) {
+            .search-grid { grid-template-columns: 1fr; }
+            .rooms-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">🏠 BayBayRooms</div>
+            <div class="revenue-buttons">
+                <a href="#landlords" class="btn btn-gold">💰 List Your Room</a>
+                <a href="https://wa.me/639123456789?text=Hi%20BayBayRooms!%20I%20have%20a%20boarding%20house" 
+                   class="btn btn-success" target="_blank">📲 Chat Now</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- HERO -->
+        <section class="hero-stats">
+            <h1>🏠 Cheapest Boarding Houses</h1>
+            <p>Baybay City, Leyte • Near VSU • From <strong>₱1,500/month</strong></p>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">₱250K</span>
+                    <strong>Rooms Listed</strong>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2.5K</span>
+                    <strong>Students Housed</strong>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <strong>Affordable</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH -->
+        <div class="search-hero">
+            <div class="search-grid">
+                <input type="text" id="locationSearch" placeholder="🔍 Search: Near VSU, Baybay NHS, Poblacion...">
+                <select id="roomType">
+                    <option value="all">All Room Types</option>
+                    <option value="single">🛏️ Single</option>
+                    <option value="shared">👥 Shared</option>
+                    <option value="apartment">🏢 Apartment</option>
+                </select>
+                <select id="priceRange">
+                    <option>₱1,500 - ₱3,000</option>
+                    <option>₱3,000 - ₱5,000</option>
+                    <option>₱5,000+</option>
+                </select>
+                <button class="btn btn-primary" onclick="findRooms()" style="padding: 18px 40px;">
+                    🏠 Find Rooms
+                </button>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <div class="filter-row">
+                <div><label>💰 Max Monthly Rent</label>
+                    <input type="range" id="maxRent" min="1500" max="8000" value="4000" step="500">
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;color:#666;">
+                        <span>₱1,500</span><span id="rentValue">₱4,000</span><span>₱8,000</span>
+                    </div>
+                </div>
+                <div><label>📏 Max Distance</label>
+                    <select id="maxDist"><option>1km</option><option>3km</option><option>5km</option></select>
+                </div>
+                <div style="display:flex;gap:15px;">
+                    <button class="btn btn-primary" onclick="applyFilters()">🔍 Filter</button>
+                    <button class="btn btn-success" onclick="clearFilters()">🔄 Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROOMS -->
+        <div id="roomsList" class="rooms-grid">
+            <div style="grid-column:1/-1;text-align:center;padding:80px;color:white;">
+                <div style="width:60px;height:60px;border:4px solid rgba(255,255,255,0.3);border-top:4px solid white;
+                            border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 30px;"></div>
+                <h2>🔍 Loading cheapest boarding houses...</h2>
+            </div>
+        </div>
+
+        <!-- SPONSORED -->
+        <div class="sponsored-banner">
+            <h2>🏆 VSU Dormitory - Official Partner</h2>
+            <p><strong>Special Student Deal:</strong> <strong style="font-size:2rem;">₱2,200/month</strong></p>
+            <p>100m from VSU Gate 1 • WiFi • Water Included • <strong>Fully Booked!</strong></p>
+            <a href="#" class="btn btn-primary" style="font-size:1.2rem;padding:20px 50px;">📞 Call Now</a>
+        </div>
+    </div>
+
+    <!-- FOOTER - LANDLORD REVENUE -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="landlord-box" id="landlords">
+                    <h2>💰 List Your Boarding House</h2>
+                    <span class="price-highlight">₱1,500</span>
+                    <p style="margin:20px 0;font-size:1.2rem;"><strong>Per Month</strong></p>
+                    <p>✅ #1 Position in Baybay<br>
+                       ✅ 2.5K Students Monthly<br>
+                       ✅ ₱50/Lead Average<br>
+                       ✅ Unlimited Inquiries<br>
+                       ✅ VSU Students Guaranteed</p>
+                    <a href="https://wa.me/639123456789?text=BayBayRooms%20-%20I%20want%20to%20list%20my%20boarding%20house%20for%20₱1500/mo" 
+                       class="btn btn-gold" style="font-size:1.2rem;padding:18px 40px;">
+                        🚀 List Now - 1 Min
+                    </a>
+                </div>
+                <div>
+                    <h3>📊 Why Landlords Choose Us</h3>
+                    <ul style="color:#D1D5DB;line-height:2;">
+                        <li>✅ 98% occupancy rate</li>
+                        <li>✅ VSU students only</li>
+                        <li>✅ No vacancy periods</li>
+                        <li>✅ Direct tenant contact</li>
+                        <li>✅ 500+ rooms listed</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📞 Landlord Hotline</h3>
+                    <p><strong>Boarding Houses:</strong> ₱1,500/month</p>
+                    <p><strong>Apartments:</strong> ₱2,500/month</p>
+                    <p><strong>Dorms:</strong> ₱3,000/month</p>
+                    <p style="margin-top:20px;">
+                        📱 <strong>+63 912 345 6789</strong><br>
+                        💬 <a href="https://wa.me/639123456789" style="color:#10B981;">WhatsApp</a>
+                    </p>
+                </div>
+            </div>
+            <div style="text-align:center;padding-top:40px;color:#9CA3AF;border-top:1px solid #374151;">
+                <p>© 2024 BayBayRooms | Serving Baybay City students since 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 🔥 BAYBAY CITY LEYTE BOARDING HOUSES
+        const boardingHouses = [
+            {id:1, name:"🏠 VSU Gate Dorm ⭐SPONSORED", loc:"VSU Gate 1", price:2200, type:"single", dist:0.1, beds:1, wifi:true, water:true, featured:true},
+            {id:2, name:"🏠 Baybay NHS Rooms", loc:"Near Baybay NHS", price:1800, type:"shared", dist:0.8, beds:2, wifi:true, water:false, featured:false},
+            {id:3, name:"🏠 Poblacion Inn", loc:"Baybay Poblacion", price:2500, type:"single", dist:1.2, beds:1, wifi:true, water:true, featured:false},
+            {id:4, name:"🏠 VSU Back Dorm ⭐SPONSORED", loc:"VSU Gate 2", price:2000, type:"single", dist:0.3, beds:1, wifi:true, water:true, featured:true},
+            {id:5, name:"🏠 Lemon St Rooms", loc:"Lemon Street", price:1600, type:"shared", dist:1.5, beds:3, wifi:false, water:true, featured:false},
+            {id:6, name:"🏠 Market Area Dorm", loc:"Baybay Public Market", price:2800, type:"apartment", dist:2.1, beds:2, wifi:true, water:true, featured:false}
+        ];
+
+        let filteredRooms = [...boardingHouses];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(displayRooms, 1200);
+            setupRangeSlider();
+        });
+
+        function setupRangeSlider() {
+            const slider = document.getElementById('maxRent');
+            const display = document.getElementById('rentValue');
+            slider.oninput = () => display.textContent = `₱${slider.value}`;
+        }
+
+        function displayRooms() {
+            const container = document.getElementById('roomsList');
+            container.innerHTML = filteredRooms.map(room => `
+                <div class="room-card">
+                    ${room.featured ? '<div class="featured-badge">⭐ FEATURED</div>' : ''}
+                    <div class="room-header">
+                        <div>
+                            <div class="room-title">${room.name}</div>
+                            <div class="room-features">
+                                <div class="feature">📍 ${room.loc}</div>
+                                <div class="feature">${room.dist}km from VSU</div>
+                                <div class="feature">${room.beds} bed${room.beds>1?'s':''}</div>
+                                ${room.wifi?'<div class="feature">📶 WiFi</div>':''}
+                                ${room.water?'<div class="feature">🚰 Water Incl.</div>':''}
+                            </div>
+                        </div>
+                        <div class="price-huge">₱${room.price}<span style="font-size:0.6em;">/mo</span></div>
+                    </div>
+                    <div style="display:flex;gap:15px;flex-wrap:wrap;">
+                        <a href="https://maps.google.com?q=10.686,124.817" target="_blank" class="btn btn-primary"
+                           onclick="trackInquiry(${room.id})">📍 View Location</a>
+                        <button class="btn btn-success" onclick="contactOwner(${room.id})">📞 Contact Owner</button>
+                        ${room.featured?'<a href="#landlords" class="btn btn-gold">💰 Feature Yours</a>':''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function findRooms() {
+            const search = document.getElementById('locationSearch').value.toLowerCase();
+            const type = document.getElementById('roomType').value;
+            filteredRooms = boardingHouses.filter(r => 
+                (!search || r.loc.toLowerCase().includes(search) || r.name.toLowerCase().includes(search)) &&
+                (type === 'all' || r.type === type)
+            );
+            displayRooms();
+        }
+
+        function applyFilters() {
+            const maxRent = parseInt(document.getElementById('maxRent').value);
+            filteredRooms = boardingHouses.filter(r => r.price <= maxRent);
+            displayRooms();
+        }
+
+        function clearFilters() {
+            document.getElementById('locationSearch').value = '';
+            document.getElementById('roomType').value = 'all';
+            document.getElementById('maxRent').value = 4000;
+            filteredRooms = [...boardingHouses];
+            displayRooms();
+        }
+
+        function contactOwner(id) {
+            window.open('https://wa.me/639123456789?text=Hi! Interested in boarding house ID '+id, '_blank');
+        }
+
+        function trackInquiry(id) {
+            console.log('💰 LEAD GENERATED:', id);
+            gtag?.('event', 'room_inquiry', { room_id: id });
+        }
+
+        // Enter key search
+        document.getElementById('locationSearch').addEventListener('keypress', e => {
+            if (e.key === 'Enter') findRooms();
+        });
+    </script>
+
+    <!-- 🔥 ADSENSE -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" 
+         data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</body>
+</html>
